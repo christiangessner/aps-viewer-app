@@ -78,6 +78,7 @@ class hyperlinkTool extends Autodesk.Viewing.ToolInterface {
         delete this.getPriority;
         delete this.handleMouseMove;
         delete this.handleSingleClick;
+		delete this.handleSingleTap;
 		this.names = [OVERLAY];
 		this.viewer = viewer;
 		this.menu = menu;
@@ -98,6 +99,15 @@ class hyperlinkTool extends Autodesk.Viewing.ToolInterface {
     }
 
 	handleSingleClick(event) {
+		const intersects = this.intersect(event, this.layer.scene.children);
+		if (intersects[0]) {
+			event.partObj = intersects[0].partObj;
+			this.menu.show(event);
+		}
+        return false;
+    };
+
+	handleSingleTab(event) {
 		const intersects = this.intersect(event, this.layer.scene.children);
 		if (intersects[0]) {
 			event.partObj = intersects[0].partObj;
