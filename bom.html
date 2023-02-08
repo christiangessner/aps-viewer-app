@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>APS viewer app</title>
+	<link rel="icon" href="img/favicon.ico" />
+	<link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="css/site.css" />	
+	<link rel="stylesheet" href="css/dx.common.css" />
+    <link rel="stylesheet" href="css/dx.light.css" />
+
+	<link rel="stylesheet" href="https://developer.api.autodesk.com/modelderivative/v2/viewers/7.*/style.css" />
+	<script type="text/javascript" src="https://developer.api.autodesk.com/modelderivative/v2/viewers/7.*/viewer3D.js"></script>
+	
+	<script type="text/javascript" src="lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<script type="text/javascript" src="lib/jquery/dist/jquery.min.js"></script>
+	<script type="text/javascript" src="js/dx.all.js"></script>
+<style>
+
+</style>	
+</head>
+
+<body class="d-flex flex-column vh-100">
+	<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow">
+		<div class="container-fluid">
+			<a class="navbar-brand" style="display: flex;" href="/">
+				<object class="mt-1 mb-1" data="img/logo.svg" height="35"></object>
+			</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+					aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+				<ul class="navbar-nav flex-grow-1">
+					<li class="nav-item">
+						<a class="nav-link text-dark" href="projects.html">Projects</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link text-dark" href="index.html">Documents</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link text-dark" href="bom.html"><b>Bill of Materials</b></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link text-dark" href="instructions.html">Instructions</a>
+					</li>
+				</ul>
+	</nav>
+	<div class="body-area container-fluid flex-fill px-0">
+		<div class="row m-0" style="position: relative; width: 100%; height: 100%;">
+			<div class="col p-0">
+				<div id="BomGrid"></div>
+			</div>
+		</div>
+	</div>
+</body>
+
+<script src="js/site.js"></script>
+<script>
+	/* 
+	https://js.devexpress.com/Documentation/21_2/Guide/jQuery_Components/Add_DevExtreme_to_a_jQuery_Application/#Local_Files
+	https://community.devexpress.com/blogs/aspnet/archive/2017/05/03/new-treelist-widget-html-5-client-side-javascript-devextreme-v17-1.aspx
+	https://js.devexpress.com/Documentation/21_2/Guide/UI_Components/TreeList/Getting_Started_with_TreeList/
+	*/
+	
+			var data = [
+				{
+					"ID": 1, "ParentID":0, "Number": "00000001", "Description": "Assembly", "Picture": "assembly.png"
+				},
+				{
+					"ID": 2, "ParentID":1, "Number": "00000002", "Description": "Subassembly", "Picture": "assembly.png"
+				},
+				{
+					"ID": 3, "ParentID":2, "Number": "00000003", "Description": "Part 2", "Picture": "part.png"
+				},
+				{
+					"ID": 4, "ParentID":2, "Number": "00000004", "Description": "Part 3", "Picture": "part.png"
+				},
+				{
+					"ID": 5, "ParentID":1, "Number": "00000005", "Description": "Part 1", "Picture": "part.png"
+				}
+			];
+	
+				$(function () {
+					$("#BomGrid").dxTreeList({
+						dataSource: data,
+						rootValue: 0,
+						keyExpr: "ID",
+						parentIdExpr: "ParentID",
+						columns: [{
+							dataField: "Number", 
+							caption: "Part Number"
+						}, {
+							dataField: "Picture", 
+							caption: "",
+							cellTemplate: function (element, info) {
+								element.append("<img src='img/" + info.text + "'></img>")
+									.css("color", "blue");
+							}
+						},
+							"Description"],
+						autoExpandAll: true,
+						allowColumnResizing: true,
+						columnAutoWidth: true,
+						filterRow: { visible: true },
+						searchPanel: { visible: false },
+					});
+				});       
+		</script>
