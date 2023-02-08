@@ -1,6 +1,6 @@
-import hyperlink from "/js/hyperlinkpdf.ext.js";
-import docbrowser from "/js/docbrowsertree.ext.js";
-import propertiespdf from "/js/propertiespdf.ext.js";
+import hyperlink from "../js/hyperlinkpdf.ext.js";
+import docbrowser from "../js/docbrowsertree.ext.js";
+import propertiespdf from "../js/propertiespdf.ext.js";
 //import { CustomTreeViewExtension } from '/js/CustomTreeViewExtension.js';
 
 
