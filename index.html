@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>APS viewer app</title>
+	<link rel="icon" href="img/favicon.ico" />
+	<link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="css/site.css" />	
+	<link rel="stylesheet" href="https://developer.api.autodesk.com/modelderivative/v2/viewers/7.*/style.css" />
+	<script type="text/javascript" src="https://developer.api.autodesk.com/modelderivative/v2/viewers/7.*/viewer3D.js"></script>
+	<script type="text/javascript" src="js/dx.all.js"></script>
+<style>
+
+</style>	
+</head>
+
+<body class="d-flex flex-column vh-100">
+	<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow">
+		<div class="container-fluid">
+			<a class="navbar-brand" style="display: flex;" href="/">
+				<object class="mt-1 mb-1" data="img/logo.svg" height="35"></object>
+			</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+					aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+				<ul class="navbar-nav flex-grow-1">
+					<li class="nav-item">
+						<a class="nav-link text-dark" href="#">Projects</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link text-dark" href="#"><b>Documents</b></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link text-dark" href="#">Bill of Materials</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link text-dark" href="#">Instructions</a>
+					</li>
+				</ul>
+<!--
+				<div class="col">
+					<div>Selected Part Number: <span id="PartNumberValue"></span></div>
+				</div>
+				<div class="col">
+					<div>Selected DBID: <span id="DbIdValue"></span></div>
+				</div>
+				<div class="col">
+					<input type="text" id="partNumText"></input>
+					<button onclick="selectByPartNum();">Select by part number</button>
+				</div>
+			</div>
+		</div>
+-->
+	</nav>
+	<div class="body-area container-fluid flex-fill px-0">
+		<div class="row m-0" style="position: relative; width: 100%; height: 100%;">
+			<div class="col p-0">
+				<div id="Viewer" style="position: relative; width: 100%; height: 100%;"></div>
+			</div>
+		</div>
+	</div>
+</body>
+
+<script src="lib/jquery/dist/jquery.min.js"></script>
+<script src="lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="js/app.js" type="module"></script>
+<script src="js/site.js"></script>

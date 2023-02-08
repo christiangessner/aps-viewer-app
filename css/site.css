@@ -1,0 +1,34 @@
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+body, html, .container-fluid, .sidebar, .body {
+    font-size: 14px;
+    margin: 0;
+}
+
+/* APS viewer */
+.icon {
+  padding: 12px;
+  display: inline-block;
+  transform: translateY(6px);
+}
+
+.geom2d_icon {
+  background-image: url(/img/svg/icon-view-2d-light.svg);
+}
+
+.geom3d_icon {
+  background-image: url(/img/svg/icon-view-3d-light.svg);
+}
+
+.docbrowser_icon {
+  background-image: url(/img/svg/folder-16-light.svg);
+}
+
+.adsk-viewing-viewer .treeview group>lmvheader {
+  height: 25px
+}
