@@ -107,7 +107,7 @@ class hyperlinkTool extends Autodesk.Viewing.ToolInterface {
         return false;
     };
 
-	handleSingleTab(event) {
+	handleSingleTap(event) {
 		const intersects = this.intersect(event, this.layer.scene.children);
 		if (intersects[0]) {
 			event.partObj = intersects[0].partObj;
